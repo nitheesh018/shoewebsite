@@ -6,7 +6,6 @@ function product() {
         <div>
           <h1>Welcome to The Shoes</h1>
           <p>Find your perfect pair of shoes today!</p>
-
         </div>
       );
 }

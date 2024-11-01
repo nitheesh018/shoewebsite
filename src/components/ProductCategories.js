@@ -8,7 +8,7 @@ function ProductCategories() {
   return (
     <div>
       <h1>Product Categories</h1>
-      <h2>changes</h2>
+      <h4>Casual</h4> 
       <ul>
         {categories.map((category, index) => (
           <li key={index}>
