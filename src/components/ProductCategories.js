@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ProductCategories() {
-  const categories = ['Running Shoes', 'Jogging Shoes', 'Casual Shoes', 'Sports Shoes'];
+  const categories = ['Running Shoes', 'Jogging Shoes', 'Casual Shoes', 'Sports Shoes','causal'];
+  /* hello good evening!! */
 
   return (
     <div>
