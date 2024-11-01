@@ -10,6 +10,7 @@ function Navigation() {
         <li><Link to="/cart">Cart</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/signup">Sign Up</Link></li>
+        <li><Link to ="/product">product </Link></li>
       </ul>
     </nav>
   );
