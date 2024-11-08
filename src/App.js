@@ -6,6 +6,7 @@ import ProductCategories from './components/ProductCategories';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Product from './components/product';
 import './App.css';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/product" element={<product />} />
+          <Route path="/product" element={<Product/>} />
         </Routes>
       </div>
     </Router>
