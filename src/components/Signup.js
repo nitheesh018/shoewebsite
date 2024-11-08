@@ -9,6 +9,7 @@ function Signup() {
     e.preventDefault();
     console.log('Signup submitted:', { username, email, password });
     // Add signup logic here
+    // signup logic
   };
 
   return (
