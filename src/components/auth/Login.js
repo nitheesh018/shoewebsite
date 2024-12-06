@@ -14,15 +14,7 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
   
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await api.login({ email, password });
-  //     // Handle successful login
-  //   } catch (error) {
-  //     // Handle error
-  //   }
-  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');

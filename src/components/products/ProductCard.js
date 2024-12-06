@@ -11,6 +11,7 @@ function ProductCard({ product }) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({ ...product, quantity: 1 });
     localStorage.setItem('cart', JSON.stringify(cart));
+    console.log("updated = ",localStorage.getItem('cart'))
   };
 
   return (

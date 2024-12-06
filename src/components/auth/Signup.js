@@ -1,16 +1,27 @@
-// src/components/auth/Signup.js
-import React, { useState } from 'react';
 import './Auth.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 
 function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = (e) => {
+  const { signup } = useAuth();
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add signup logic here
+    setError('');
+    
+    const success = await signup(username, password);
+    if (success) {
+      navigate('/');
+    } else {
+      setError('Invalid credentials');
+    }
   };
+
 
   return (
     <div className="auth-container">

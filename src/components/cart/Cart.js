@@ -14,11 +14,15 @@ function Cart() {
     cvv: '',
     name: ''
   });
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
     setCartItems(savedCart);
     calculateTotal(savedCart);
+
+    // Optionally, set username from localStorage or other method
+    setUsername(localStorage.getItem('userName') || 'Guest');
   }, []);
 
   const calculateTotal = (items) => {
@@ -33,6 +37,7 @@ function Cart() {
     setCartItems(updated);
     localStorage.setItem('cart', JSON.stringify(updated));
     calculateTotal(updated);
+    console.log("updated = ",localStorage.getItem('cart'))
   };
 
   const removeItem = (productId) => {
@@ -46,15 +51,53 @@ function Cart() {
     setShowPayment(true);
   };
 
-  const handlePayment = (e) => {
+  const handlePayment =async (e) => {
     e.preventDefault();
     // Process payment logic here
-    localStorage.removeItem('cart');
-    setCartItems([]);
-    setTotal(0);
-    setShowPayment(false);
-    alert('Payment successful! Thank you for your purchase.');
-    navigate('/');
+    const simplifiedCartItems = cartItems.map(item => ({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      category: item.category
+    }));
+  
+    // Prepare the payment data and cart details
+    const paymentData = {
+      username,             // The user's name or username
+      cartItems: simplifiedCartItems,  // Array of simplified cart items (without image)
+      total,                // The total amount
+      paymentDetails        // The payment details like card number, expiry, etc.
+    };
+    console.log("payment data string= ",JSON.stringify(paymentData))
+    try {
+      // Send the payment data to the new API endpoint (e.g., /api/checkout)
+      const response = await fetch('http://localhost:8080/api/checkout', {  // Updated endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(paymentData),  // Payment data to be sent to the backend
+      });
+      console.log("payment response = ",response)
+      if (response.ok) {
+        const data = await response.json();
+        alert('Payment successful! Thank you for your purchase.');
+  
+        // Clear the cart and reset payment state
+        localStorage.removeItem('cart');
+        setCartItems([]);
+        setTotal(0);
+        setShowPayment(false);
+  
+        // Redirect to homepage or any other page after successful payment
+        navigate('/');
+      } else {
+        alert('Payment failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error during payment:', error);
+      alert('An error occurred. Please try again.');
+    }
   };
 
   return (
