@@ -13,6 +13,59 @@ import Footer from './components/layout/Footer';
 import './App.css';
 
 function App() {
+
+  const products = [
+    {
+      id: 1,
+      name: "Running Shoes",
+      price: 89.99,
+      category: "Sports",
+      image: "/images/sports1.png"
+    },
+    {
+      id: 2,
+      name: "Casual Sneakers",
+      price: 59.99,
+      category: "Casual",
+      image: "/images/casual1.jpg"
+    },
+    {
+      id: 3,
+      name: "Basketball Shoes",
+      price: 29.99,
+      category: "Sports",
+      image: "images/basketball.jpeg"
+    },
+    {
+      id: 4,
+      name: "Oxford Dress Shoes",
+      price: 129.99,
+      category: "Formal",
+      image: "/images/ox.jpg"
+    },
+    {
+      id: 5,
+      name: "Patent Leather Shoes",
+      price: 149.99,
+      category: "Formal",
+      image: "/images/pa.jpg"
+    },
+    {
+      id: 6,
+      name: "Kids Light-Up Sneakers",
+      price: 39.99,
+      category: "Kids",
+      image: "/images/lit.jpg"
+    },
+    {
+      id: 7,
+      name: "Kids School Shoes",
+      price: 44.99,
+      category: "Kids",
+      image: "/images/school.jpg"
+    }
+  ];
+
   return (
     <AuthProvider>
       <Router>
@@ -20,6 +73,12 @@ function App() {
           <Navigation />
           <main className="main-content">
             <Routes>
+            {/* {filteredProducts.map(product => (
+          <Route 
+          path="/" 
+          element={<Home filteredProducts={filteredProducts} />} 
+        />
+        ))} */}
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/categories" element={<ProductCategories />} />

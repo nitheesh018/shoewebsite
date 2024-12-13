@@ -1,7 +1,8 @@
 // src/components/products/ProductList.js
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
-import './ProductList.css';
+import './ProductList.css'
+
 
 function ProductList() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -12,16 +13,50 @@ function ProductList() {
       name: "Running Shoes",
       price: 89.99,
       category: "Sports",
-      image: "/images/running-shoes.jpg"
+      image: "/images/sports1.png"
     },
     {
       id: 2,
       name: "Casual Sneakers",
       price: 59.99,
       category: "Casual",
-      image: "/images/casual-sneakers.jpg"
+      image: "/images/casual1.jpg"
     },
-    // Add more products
+    {
+      id: 3,
+      name: "Basketball Shoes",
+      price: 29.99,
+      category: "Sports",
+      image: "images/basketball.jpeg"
+    },
+    {
+      id: 4,
+      name: "Oxford Dress Shoes",
+      price: 129.99,
+      category: "Formal",
+      image: "/images/ox.jpg"
+    },
+    {
+      id: 5,
+      name: "Patent Leather Shoes",
+      price: 149.99,
+      category: "Formal",
+      image: "/images/pa.jpg"
+    },
+    {
+      id: 6,
+      name: "Kids Light-Up Sneakers",
+      price: 39.99,
+      category: "Kids",
+      image: "/images/lit.jpg"
+    },
+    {
+      id: 7,
+      name: "Kids School Shoes",
+      price: 44.99,
+      category: "Kids",
+      image: "/images/school.jpg"
+    }
   ];
 
   const categories = ["All", "Sports", "Casual", "Formal", "Kids"];
