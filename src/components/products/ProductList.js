@@ -56,10 +56,24 @@ function ProductList() {
       price: 44.99,
       category: "Kids",
       image: "/images/school.jpg"
+    },
+    {
+      id: 8,
+      name: "men shoes",
+      category: "men",
+      price: 88.9,
+      image: ""
+    },
+    {
+      id: 9,
+      name: "women shoes",
+      price: 99.9,
+      category: "women",
+      image:""
     }
   ];
 
-  const categories = ["All", "Sports", "Casual", "Formal", "Kids"];
+  const categories = ["All", "Sports", "Casual", "Formal", "Kids","men","women"];
 
   const filteredProducts = selectedCategory === 'all' 
     ? products 
