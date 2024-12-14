@@ -9,6 +9,8 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     console.log("username = ", username, " password = ", password);
     try {
+      //this is login api call which calls usercontroller in backend
+      //validation logic is written in userService
       const response = await fetch('http://localhost:8080/api/login', {
         method: 'POST',
         headers: {

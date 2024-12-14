@@ -73,12 +73,7 @@ function App() {
           <Navigation />
           <main className="main-content">
             <Routes>
-            {/* {filteredProducts.map(product => (
-          <Route 
-          path="/" 
-          element={<Home filteredProducts={filteredProducts} />} 
-        />
-        ))} */}
+            {/* it is called when application is logged in */}
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/categories" element={<ProductCategories />} />
